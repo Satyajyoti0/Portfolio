@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import skillsData from "@/data/skills.json";
 import { FiCode, FiDatabase, FiServer, FiBox } from "react-icons/fi";
 import { IconType } from "react-icons";
@@ -69,45 +70,77 @@ export default function Skills() {
         <section id="skills" className="scroll-mt-14 relative py-24 bg-background">
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                 {/* Section header */}
-                <div className="mb-16">
+                <motion.div 
+                    className="mb-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                >
                     <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">Skills</span>
-                </div>
+                </motion.div>
 
                 {/* Intro text */}
-                <p className="text-lg text-muted-foreground max-w-3xl mb-12 leading-relaxed">
+                <motion.p 
+                    className="text-lg text-muted-foreground max-w-3xl mb-12 leading-relaxed"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                >
                     Technologies I work with—organized by area of focus.
-                </p>
+                </motion.p>
 
                 {/* Categories with skills inline */}
                 <div className="space-y-12">
-                    {categories.map((category) => {
+                    {categories.map((category, catIndex) => {
                         const categorySkills = skills.filter(s => s.category === category.id);
                         const Icon = category.icon;
 
                         if (categorySkills.length === 0) return null;
 
                         return (
-                            <div key={category.id} className="space-y-4">
+                            <motion.div 
+                                key={category.id} 
+                                className="space-y-4"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: catIndex * 0.1 }}
+                            >
                                 {/* Category header */}
-                                <div className="flex items-center gap-3">
+                                <motion.div 
+                                    className="flex items-center gap-3"
+                                    whileHover={{ x: 4 }}
+                                    transition={{ duration: 0.2 }}
+                                >
                                     <Icon className="w-4 h-4 text-muted-foreground" />
                                     <h3 className="text-sm font-medium text-foreground uppercase tracking-wide">
                                         {category.label}
                                     </h3>
-                                </div>
+                                </motion.div>
 
                                 {/* Skills list */}
                                 <div className="flex flex-wrap gap-2">
-                                    {categorySkills.map((skill) => (
-                                        <span
+                                    {categorySkills.map((skill, skillIndex) => (
+                                        <motion.span
                                             key={skill.name}
-                                            className="px-3 py-1.5 text-sm border border-border text-muted-foreground hover:border-foreground hover:text-foreground transition-colors cursor-default"
+                                            initial={{ opacity: 0, scale: 0.9 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: catIndex * 0.1 + skillIndex * 0.03 }}
+                                            whileHover={{ 
+                                                scale: 1.05, 
+                                                borderColor: "var(--primary)",
+                                                color: "var(--foreground)"
+                                            }}
+                                            className="px-3 py-1.5 text-sm border border-border text-muted-foreground transition-colors cursor-default"
                                         >
                                             {skill.name}
-                                        </span>
+                                        </motion.span>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
                         );
                     })}
                 </div>
