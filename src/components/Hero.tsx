@@ -1,37 +1,10 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 export default function Hero() {
     const heroRef = useRef<HTMLDivElement>(null);
-    const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-    
-    // Get window size on mount (client-side only)
-    useEffect(() => {
-        setWindowSize({
-            width: typeof window !== 'undefined' ? window.innerWidth : 0,
-            height: typeof window !== 'undefined' ? window.innerHeight : 0,
-        });
-    }, []);
-    
-    // Subtle parallax effect on mouse move
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-    
-    const springConfig = { damping: 25, stiffness: 150 };
-    const rotateX = useSpring(useTransform(mouseY, [0, windowSize.height || 800], [2, -2]), springConfig);
-    const rotateY = useSpring(useTransform(mouseX, [0, windowSize.width || 1200], [-2, 2]), springConfig);
-
-    const handleMouseMove = (e: React.MouseEvent) => {
-        mouseX.set(e.clientX);
-        mouseY.set(e.clientY);
-    };
-
-    const handleMouseLeave = () => {
-        mouseX.set(0);
-        mouseY.set(0);
-    };
 
     const scrollToProjects = () => {
         const projectsSection = document.getElementById('projects');
@@ -43,42 +16,34 @@ export default function Hero() {
     return (
         <section 
             ref={heroRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
             className="relative min-h-screen flex flex-col justify-center bg-background overflow-hidden"
         >
-            {/* Subtle gradient accent */}
+            {/* Subtle top accent */}
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50" />
             
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full py-32">
                 <div className="flex flex-col items-start gap-16">
-                    {/* Label */}
+                    {/* Label with signature divider */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                         className="flex items-center gap-4"
                     >
-                        <motion.span 
-                            className="w-10 h-px bg-primary"
-                            initial={{ width: 0 }}
-                            animate={{ width: 40 }}
-                            transition={{ duration: 0.6, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                        />
-                        <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+                        <span className="section-divider" />
+                        <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">
                             Satyajyoti Mohanty
                         </span>
                     </motion.div>
 
-                    {/* Main heading with subtle 3D effect */}
+                    {/* Main heading — clean editorial */}
                     <div className="max-w-5xl">
                         <motion.h1
-                            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
                             className="text-foreground"
                         >
                             <motion.span 
                                 className="block"
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 24 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
                             >
@@ -86,27 +51,27 @@ export default function Hero() {
                             </motion.span>
                             <motion.span 
                                 className="block"
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 24 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+                                transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1], delay: 0.08 }}
                             >
                                 Developer &
                             </motion.span>
                             <motion.span 
                                 className="block text-primary"
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 24 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+                                transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1], delay: 0.16 }}
                             >
                                 Problem Solver.
                             </motion.span>
                         </motion.h1>
                         
-                        {/* Description */}
+                        {/* Description — natural, concise */}
                         <motion.p
-                            initial={{ opacity: 0, y: 24 }}
+                            initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                            transition={{ duration: 0.7, delay: 0.24, ease: [0.4, 0, 0.2, 1] }}
                             className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed pt-8"
                         >
                             I build software that works as good as it looks. 
@@ -115,11 +80,11 @@ export default function Hero() {
                         </motion.p>
                     </div>
 
-                    {/* Actions */}
+                    {/* Actions — refined */}
                     <motion.div
-                        initial={{ opacity: 0, y: 24 }}
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                        transition={{ duration: 0.7, delay: 0.32, ease: [0.4, 0, 0.2, 1] }}
                         className="flex flex-wrap items-center gap-4"
                     >
                         <motion.button
@@ -174,11 +139,11 @@ export default function Hero() {
                         </motion.a>
                     </motion.div>
 
-                    {/* Divider with location */}
+                    {/* Divider with location — cleaner */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.7, delay: 0.5 }}
+                        transition={{ duration: 0.7, delay: 0.4 }}
                         className="flex items-center gap-6 pt-8 border-t border-border"
                     >
                         <motion.div 
@@ -186,11 +151,7 @@ export default function Hero() {
                             whileHover={{ x: 4 }}
                             transition={{ duration: 0.2 }}
                         >
-                            <motion.span 
-                                className="w-2 h-2 bg-primary rounded-full"
-                                animate={{ scale: [1, 1.2, 1] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                            />
+                            <span className="w-2 h-2 bg-primary rounded-full" />
                             <span>Based in Odisha, India</span>
                         </motion.div>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
