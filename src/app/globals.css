@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark theme by default — near-black editor background */
+  --background: #0b0e14;
+  --foreground: #e6edf3;
+
+  /* Brand Colors — syntax-highlight inspired palette that ties the whole
+     site back to the "code editor" concept (mint=keyword, sky=function, violet=type) */
+  --primary: #7ee787;
+  /* Mint */
+  --secondary: #61afef;
+  /* Sky */
+  --accent: #b794f6;
+  /* Violet */
+
+  /* Surface Colors */
+  --card: #10151d;
+  --card-foreground: #e6edf3;
+  --border: #1e2530;
+  --muted-foreground: #8b949e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  @apply antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 5px;
+  border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* 
+ * MOBILE PERFORMANCE OPTIMIZATIONS
+ * Disable expensive graphical pipelines on mobile devices to fix scroll lag
+ */
+@media (max-width: 768px) {
+
+  /* Disable all blur / backdrop convolution algorithms which choke mobile GPUs */
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Make navbar background solid since we lost the blur.
+     Matches the bg-background/90 utility class used on the scrolled navbar. */
+  .bg-background\/90 {
+    background-color: rgba(11, 14, 20, 0.98) !important;
+  }
+}
