@@ -1,24 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark theme by default — near-black editor background */
-  --background: #0b0e14;
-  --foreground: #e6edf3;
-
-  /* Brand Colors — syntax-highlight inspired palette that ties the whole
-     site back to the "code editor" concept (mint=keyword, sky=function, violet=type) */
-  --primary: #7ee787;
-  /* Mint */
-  --secondary: #61afef;
-  /* Sky */
-  --accent: #b794f6;
-  /* Violet */
-
+  /* Color palette — sophisticated, editorial, personal */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  
+  /* Brand Colors — single restrained accent */
+  --primary: #ff4d00;       /* International orange — bold but controlled */
+  --secondary: #888888;     /* Neutral gray */
+  
   /* Surface Colors */
-  --card: #10151d;
-  --card-foreground: #e6edf3;
-  --border: #1e2530;
-  --muted-foreground: #8b949e;
+  --card: #141414;
+  --card-foreground: #ededed;
+  --border: #262626;
+  --muted-foreground: #a3a3a3;
 }
 
 @theme inline {
@@ -26,7 +21,6 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-border: var(--border);
@@ -36,14 +30,71 @@
   --font-mono: var(--font-geist-mono);
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-  @apply antialiased;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
+/* Typography — editorial hierarchy */
+h1 {
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Selection color */
+::selection {
+  background: var(--primary);
+  color: var(--background);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Custom Scrollbar — minimal */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -54,29 +105,44 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 5px;
   border: 2px solid var(--background);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--secondary);
 }
 
-/* 
- * MOBILE PERFORMANCE OPTIMIZATIONS
- * Disable expensive graphical pipelines on mobile devices to fix scroll lag
- */
-@media (max-width: 768px) {
+/* Utility classes for animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-  /* Disable all blur / backdrop convolution algorithms which choke mobile GPUs */
-  * {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  /* Make navbar background solid since we lost the blur.
-     Matches the bg-background/90 utility class used on the scrolled navbar. */
-  .bg-background\/90 {
-    background-color: rgba(11, 14, 20, 0.98) !important;
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.7s ease-out forwards;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
