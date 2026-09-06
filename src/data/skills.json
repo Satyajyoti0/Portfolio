@@ -1,0 +1,146 @@
+[
+    {
+        "name": "HTML",
+        "level": 95,
+        "icon": "SiHtml5",
+        "color": "from-orange-400 to-red-400",
+        "category": "frontend",
+        "description": "Semantic markup & accessible structure"
+    },
+    {
+        "name": "CSS",
+        "level": 90,
+        "icon": "SiCss3",
+        "color": "from-blue-500 to-indigo-500",
+        "category": "frontend",
+        "description": "Styling, responsive layouts & modern features"
+    },
+    {
+        "name": "Java",
+        "level": 85,
+        "icon": "FaJava",
+        "color": "from-orange-500 to-red-500",
+        "category": "backend",
+        "description": "Enterprise applications & backend systems"
+    },
+    {
+        "name": "React",
+        "level": 70,
+        "icon": "SiReact",
+        "color": "from-cyan-400 to-blue-500",
+        "category": "frontend",
+        "description": "Modern UI development"
+    },
+    {
+        "name": "Next.js",
+        "level": 70,
+        "icon": "SiNextdotjs",
+        "color": "from-slate-700 to-slate-900",
+        "category": "frontend",
+        "description": "Full-stack React framework"
+    },
+    {
+        "name": "JavaScript",
+        "level": 70,
+        "icon": "SiJavascript",
+        "color": "from-yellow-400 to-yellow-500",
+        "category": "frontend",
+        "description": "Core web programming"
+    },
+    {
+        "name": "TypeScript",
+        "level": 45,
+        "icon": "SiTypescript",
+        "color": "from-blue-500 to-blue-600",
+        "category": "frontend",
+        "description": "Type-safe JavaScript"
+    },
+    {
+        "name": "Tailwind CSS",
+        "level": 80,
+        "icon": "SiTailwindcss",
+        "color": "from-cyan-400 to-teal-500",
+        "category": "frontend",
+        "description": "Utility-first CSS framework"
+    },
+    {
+        "name": "Node.js",
+        "level": 60,
+        "icon": "SiNodedotjs",
+        "color": "from-green-500 to-green-600",
+        "category": "backend",
+        "description": "JavaScript runtime"
+    },
+    {
+        "name": "Express",
+        "level": 60,
+        "icon": "SiExpress",
+        "color": "from-gray-600 to-gray-700",
+        "category": "backend",
+        "description": "Web application framework"
+    },
+    {
+        "name": "Spring Boot",
+        "level": 60,
+        "icon": "SiSpringboot",
+        "color": "from-green-500 to-emerald-600",
+        "category": "backend",
+        "description": "Java application framework"
+    },
+    {
+        "name": "MySQL",
+        "level": 80,
+        "icon": "SiMysql",
+        "color": "from-blue-600 to-cyan-500",
+        "category": "database",
+        "description": "Relational database"
+    },
+    {
+        "name": "MongoDB",
+        "level": 70,
+        "icon": "SiMongodb",
+        "color": "from-green-600 to-green-500",
+        "category": "database",
+        "description": "NoSQL database"
+    },
+    {
+        "name": "PostgreSQL",
+        "level": 25,
+        "icon": "SiPostgresql",
+        "color": "from-blue-400 to-blue-600",
+        "category": "database",
+        "description": "Advanced open source relational database"
+    },
+    {
+        "name": "Git",
+        "level": 80,
+        "icon": "SiGit",
+        "color": "from-orange-600 to-red-500",
+        "category": "tools",
+        "description": "Version control system"
+    },
+    {
+        "name": "Android Studio",
+        "level": 80,
+        "icon": "FaAndroid",
+        "color": "from-green-600 to-teal-500",
+        "category": "tools",
+        "description": "IDE for Android app development"
+    },
+    {
+        "name": "GitHub",
+        "level": 85,
+        "icon": "SiGithub",
+        "color": "from-gray-700 to-black",
+        "category": "tools",
+        "description": "Repository hosting, CI/CD and collaboration"
+    },
+    {
+        "name": "Docker",
+        "level": 15,
+        "icon": "SiDocker",
+        "color": "from-blue-400 to-blue-600",
+        "category": "tools",
+        "description": "Containerization platform"
+    }
+]

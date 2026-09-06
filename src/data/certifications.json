@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Java Full Stack Developer",
+        "issuer": "TalentNext Wipro",
+        "date": "2025",
+        "credentialUrl": "https://drive.google.com/file/d/1zyxkCRgI4hjW42BQrFIk29qMSFuhXYKM/view?usp=sharing",
+        "image": "/assets/wipro-logo.png",
+        "skills": [
+            "Java",
+            "Spring Boot",
+            "JSP",
+            "CSS"
+        ]
+    },
+    {
+        "name": "Data Analytics",
+        "issuer": "Geeksforgeeks",
+        "date": "2025",
+        "credentialUrl": "https://drive.google.com/file/d/1L7CJ8d6q135E_T4m9q5JxB3RRKFMi2LC/view?usp=sharing",
+        "image": "/assets/geeksforgeeks-logo.png",
+        "skills": [
+            "Python",
+            "Data Analytics",
+            "Data Visualization",
+            "Data Analysis"
+        ]
+    }
+]

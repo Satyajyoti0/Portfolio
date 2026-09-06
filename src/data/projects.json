@@ -1,0 +1,73 @@
+[
+    {
+        "id": 1,
+        "title": "Portfolio Website",
+        "description": "A modern portfolio website built with Next.js, TypeScript, and Tailwind CSS, featuring smooth Framer Motion animations and a fully functional contact form.",
+        "tech": [
+            "Next.js",
+            "React",
+            "Tailwind CSS",
+            "TypeScript",
+            "Framer Motion"
+        ],
+        "image": "/assets/portfolio.png",
+        "repo": "https://github.com/Zenus004/Portfolio",
+        "demo": "https://satyajyoti-mohanty-portfolio.vercel.app/"
+    },
+    {
+        "id": 2,
+        "title": "FreelanceX",
+        "description": "FreelanceX a modern MERN stack micro-freelancing platform featuring secure authentication, Socket.io real-time communication, and a polished UI built with Tailwind CSS and Framer Motion.",
+        "tech": [
+            "React",
+            "Tailwind CSS",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Socket.io",
+            "JWT",
+            "Bcrypt",
+            "Framer Motion"
+        ],
+        "image": "/assets/freelancex.png",
+        "repo": "https://github.com/Zenus004/FreelanceX",
+        "demo": "https://freelance-x-in.vercel.app"
+    },
+    {
+        "id": 3,
+        "title": "Detox Droid",
+        "description": "A privacy-focused, local-first Android app built with Jetpack Compose to track screen time, block distractions, and break doom-scrolling habits and detailed weekly usage insights.",
+        "tech": [
+            "Kotlin",
+            "Jetpack Compose",
+            "Room Database",
+            "MVVM Architecture",
+            "Coroutines"
+        ],
+        "image": "/assets/detox.png",
+        "repo": "https://github.com/Zenus004/Detox_Droid.git",
+        "demo": "https://detox-droid.vercel.app"
+    },
+    {
+        "id": 4,
+        "title": "ClickScope",
+        "description": "A professional SaaS platform for shortening links and tracking audience behavior. Features real-time analytics, geographic heatmaps, and enterprise security features like password protection and one-time links. Built using the MERN stack with Redis caching for extreme performance.",
+        "tech": [
+            "React",
+            "Tailwind CSS",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Mongoose",
+            "Redis (Upstash)",
+            "Socket.io",
+            "JWT",
+            "Framer Motion",
+            "Recharts",
+            "GeoIP Lite"
+        ],
+        "image": "/assets/ClickScope.png",
+        "repo": "https://github.com/Zenus004/ClickScope.git",
+        "demo": "https://clickscope.vercel.app"
+    }
+]
