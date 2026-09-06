@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Sidebar, { SIDEBAR_WIDTH } from "@/components/Sidebar";
-import TabBar from "@/components/Tabbar";
-import StatusBar from "@/components/Statusbar";
-import CommandPalette from "@/components/Commandpalette";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
@@ -19,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Full Stack Developer",
+  title: "Satyajyoti Mohanty | Full Stack Developer",
   description: "A showcase of my work and skills as a Full Stack Developer.",
 };
 
@@ -33,17 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
-        <Sidebar />
-        <TabBar />
-        <CommandPalette />
-
-        {/* Offset for the fixed sidebar (desktop), tab bar (top), and status bar (bottom) */}
-        <div className="md:pl-[296px] pt-14 pb-7">
-          <main>{children}</main>
-          <Footer />
-        </div>
-
-        <StatusBar />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
         <Analytics />
       </body>
     </html>
