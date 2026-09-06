@@ -1,16 +1,15 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 
 export default function About() {
     const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
         <section id="about" ref={ref} className="scroll-mt-14 relative py-24 bg-background">
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                {/* Section header */}
+                {/* Section header with signature divider */}
                 <motion.div 
                     className="mb-16"
                     initial={{ opacity: 0, y: 20 }}
@@ -18,11 +17,11 @@ export default function About() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">About</span>
+                    <span className="section-label">About</span>
                 </motion.div>
 
                 <div className="grid lg:grid-cols-12 gap-16 items-start">
-                    {/* Left: Bio text */}
+                    {/* Left: Bio text — cleaner editorial */}
                     <motion.div 
                         className="lg:col-span-7 space-y-8"
                         initial={{ opacity: 0, y: 30 }}
@@ -48,7 +47,7 @@ export default function About() {
                             it should enable people to do their best work without getting in the way.
                         </p>
 
-                        {/* Focus areas - simplified */}
+                        {/* Focus areas — simplified, no cards */}
                         <motion.div 
                             className="pt-8 flex flex-wrap gap-8"
                             initial={{ opacity: 0 }}
@@ -66,20 +65,20 @@ export default function About() {
                                     initial={{ opacity: 0, y: 10 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
+                                    transition={{ duration: 0.4, delay: 0.4 + i * 0.08 }}
                                     whileHover={{ x: 4 }}
                                 >
-                                    <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
+                                    <h3 className="font-medium text-foreground mb-1">{item.title}</h3>
                                     <p className="text-sm text-muted-foreground">{item.desc}</p>
                                 </motion.div>
                             ))}
                         </motion.div>
                     </motion.div>
 
-                    {/* Right: Profile image */}
+                    {/* Right: Profile image — refined presentation */}
                     <motion.div 
                         className="lg:col-span-5 lg:pl-12"
-                        initial={{ opacity: 0, scale: 0.95 }}
+                        initial={{ opacity: 0, scale: 0.96 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7, delay: 0.2 }}
@@ -87,7 +86,7 @@ export default function About() {
                         <div className="relative">
                             <motion.div 
                                 className="aspect-[3/4] max-w-md mx-auto bg-card overflow-hidden border border-border"
-                                whileHover={{ scale: 1.02 }}
+                                whileHover={{ scale: 1.01 }}
                                 transition={{ duration: 0.4 }}
                             >
                                 <img
@@ -99,7 +98,7 @@ export default function About() {
                             
                             {/* Simple caption */}
                             <motion.p 
-                                className="text-center text-sm text-muted-foreground mt-4"
+                                className="text-center text-xs text-muted-foreground mt-4 uppercase tracking-wider"
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
